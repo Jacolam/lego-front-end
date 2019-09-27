@@ -40,6 +40,13 @@ class LogInPage extends React.Component{
     })
   }
 
+  handleForm = e => {
+    console.log('im about to handle this whole form ')
+    this.setState({
+      login: !this.state.login
+    })
+  }
+
   render(){
     return(
       <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
@@ -72,7 +79,9 @@ class LogInPage extends React.Component{
               </Segment>
             </Form>
             <Message>
-              <Link to='/signup'> Don't have an account? </Link>
+              <Button color='red' onClick={this.handleForm}>
+                { this.state.login ? (`Don't Have An Account?`):(`Already Have An Account?`)}
+              </Button>
             </Message>
           </Grid.Column>
         </Grid>
