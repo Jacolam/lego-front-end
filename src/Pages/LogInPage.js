@@ -1,7 +1,7 @@
 import React from 'react'
-// import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
 import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react'
+// import { connect } from 'react-redux'
+// import { Link } from 'react-router-dom'
 
 
 class LogInPage extends React.Component{
@@ -20,8 +20,27 @@ class LogInPage extends React.Component{
 
   handleSubmit = e => {
     e.preventDefault()
-    console.log('this is sending before hand ', this.state)
-    fetch('http://localhost:3000/api/v1/login', {
+    if(this.state.login){
+      fetch('http://localhost:3000/api/v1/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(this.state)
+      })
+      .then(res => res.json())
+      .then(data => {
+        if(!!data.message){
+          alert('wrong information')
+        } else {
+          localStorage.setItem('current_user', data.user.username)
+          localStorage.setItem('token', data.jwt)
+          window.location.replace(`http://localhost:3001/home`)
+          }
+        })
+    } else {
+      // sign up fetch request
+      fetch('http://localhost:3000/api/v1/users', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -30,18 +49,20 @@ class LogInPage extends React.Component{
     })
     .then(res => res.json())
     .then(data => {
-      if(!!data.message){
-        alert('wrong information')
+      //will push user to login page after creating]
+      if (!!data.error){
+        alert('Account already exists')
       } else {
         localStorage.setItem('current_user', data.user.username)
         localStorage.setItem('token', data.jwt)
         window.location.replace(`http://localhost:3001/home`)
       }
     })
+    }
   }
 
   handleForm = e => {
-    console.log('im about to handle this whole form ')
+    // switching between login form and sign up form
     this.setState({
       login: !this.state.login
     })
@@ -74,8 +95,8 @@ class LogInPage extends React.Component{
                 />
 
               <Button color='blue' fluid size='large'>
-                  Login
-                </Button>
+                { this.state.login ? ('Log In') : ('Sign Up!') }
+              </Button>
               </Segment>
             </Form>
             <Message>
