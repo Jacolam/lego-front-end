@@ -10,6 +10,7 @@ function App() {
       <Switch>
         <Route path='/login' component={LogInPage}/>
         <Route path='/home' component={Home}/>
+        <Route path='/' component={LogInPage}/>
       </Switch>
     </div>
   );
