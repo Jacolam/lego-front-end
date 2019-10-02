@@ -22,7 +22,7 @@ class AddExercise extends React.Component{
   }
   render(){
     return(
-      <div class='flexR'>
+      <div class='log-event'>
         <div>
           Name:
           <br/>

@@ -6,7 +6,7 @@ $font: verdana;
   justify-content: center;
 }
 
-.flexR {
+.log-event {
   @include flexBox ;
   flex-direction: row;
 }
