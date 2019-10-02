@@ -1,13 +1,26 @@
 $font: verdana;
 
-form {
+@mixin flexBox(){
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: lightblue;
-  font: $font
+}
+
+.flexR {
+  @include flexBox ;
+  flex-direction: row;
+}
+
+form {
+ @include flexBox;
+
+ inputs {
+   background: lightblue;
+ }
+ font: $font
+
 }
 
 input {
-  width:50px;
+  width: 60px;
 }

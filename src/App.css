@@ -1,11 +1,18 @@
+.flexR {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-direction: row; }
+
 form {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: lightblue;
   font: verdana; }
+  form inputs {
+    background: lightblue; }
 
 input {
-  width: 50px; }
+  width: 60px; }
 
 /*# sourceMappingURL=App.css.map */

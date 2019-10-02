@@ -22,10 +22,17 @@ class AddExercise extends React.Component{
   }
   render(){
     return(
-      <div>
+      <div class='flexR'>
+        <div>
+          Name:
+          <br/>
+          Reps:
+          <br/>
+          Weight:
+          <br/>
+          RPE:
+        </div>
         <form onSubmit={this.handleSubmit}>
-          <label>
-            Name:
             <input
               type="text"
               value={this.state.value}
@@ -33,34 +40,24 @@ class AddExercise extends React.Component{
               onChange={this.handleChange}
               width= '1'
             />
-          </label>
-          <label>
-            Reps:
             <input
               type="number"
               value={this.state.value}
               name='reps'
               onChange={this.handleChange}
             />
-          </label>
-          <label>
-            Weight:
             <input
               type="number"
               value={this.state.value}
               name='weight'
               onChange={this.handleChange}
             />
-          </label>
-          <label>
-            RPE:
             <input
               type="number"
               value={this.state.value}
               name='rpe'
               onChange={this.handleChange}
             />
-          </label>
           <input type="submit" value="Submit" />
         </form>
 
