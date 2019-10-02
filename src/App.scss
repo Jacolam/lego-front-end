@@ -1,0 +1,13 @@
+$font: verdana;
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: lightblue;
+  font: $font
+}
+
+input {
+  width:50px;
+}

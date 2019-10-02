@@ -1,0 +1,11 @@
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: lightblue;
+  font: verdana; }
+
+input {
+  width: 50px; }
+
+/*# sourceMappingURL=App.css.map */

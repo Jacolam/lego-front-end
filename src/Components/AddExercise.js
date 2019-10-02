@@ -31,6 +31,7 @@ class AddExercise extends React.Component{
               value={this.state.value}
               name='name'
               onChange={this.handleChange}
+              width= '1'
             />
           </label>
           <label>
