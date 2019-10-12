@@ -7,7 +7,6 @@ class AddExercise extends React.Component{
     reps:'',
     weight:'',
     rpe:'',
-
   }
 
   handleChange = e => {
@@ -18,7 +17,17 @@ class AddExercise extends React.Component{
 
   handleSubmit = e => {
     e.preventDefault()
-    fetch()
+
+    let data = this.state
+
+    fetch('http://localhost:3000/api/v1/log', {
+      method: 'POST',
+      body: JSON.stringify(data), // data can be `string` or {object}!
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then(res => res.json())
+    .then(console.log(this))
   }
   render(){
     return(
