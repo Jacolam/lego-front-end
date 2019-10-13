@@ -27,11 +27,11 @@ class AddExercise extends React.Component{
         'Content-Type': 'application/json'
       }
     }).then(res => res.json())
-    .then(console.log(this))
+    .then( data => console.log(data ))
   }
   render(){
     return(
-      <div class='log-event'>
+      <div className='log-event'>
         <div>
           Name:
           <br/>
